@@ -6,7 +6,7 @@ mysqli_report(MYSQLI_REPORT_OFF);
 require_once __DIR__ . '/../includes/leanne_db.php';
 
 // Yana:
-// admin guard mo nalang dito kapag final na roles/session names mo hehe.
+// admin guard mo nalang dito kapag final na roles/session names mo hehe
 
 // Leanne:
 // $conn ang mysqli connection. Dashboard expects bookings: id, vehicle_id,

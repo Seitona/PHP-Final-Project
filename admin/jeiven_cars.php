@@ -6,7 +6,7 @@ mysqli_report(MYSQLI_REPORT_OFF);
 require_once __DIR__ . '/../includes/leanne_db.php';
 
 // Yana:
-// paki-add nalang dito yung admin guard mo once okay na sessions natin.
+// paki-add nalang dito yung admin guard mo once okay na sessions natinn
 
 // Leanne:
 // $conn yung expected mysqli connection dito. Yung booking countdown gumagamit ng

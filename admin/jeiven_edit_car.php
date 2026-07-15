@@ -6,7 +6,7 @@ mysqli_report(MYSQLI_REPORT_OFF);
 require_once __DIR__ . '/../includes/leanne_db.php';
 
 // Yana:
-// admin session check mo nalang ilagay dito pag ready na yung login side.
+// admin session check mo nalang ilagay dito pag ready na yung login sidee
 
 // Leanne:
 // same $conn at vehicles columns lang gamit ko dito gaya nung add vehicle page.

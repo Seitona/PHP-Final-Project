@@ -6,7 +6,7 @@ mysqli_report(MYSQLI_REPORT_OFF);
 require_once __DIR__ . '/../includes/leanne_db.php';
 
 // Yana:
-// admin-only check mo nalang dito pag final na authentication mo.
+// admin-only check mo nalang dito pag final na authentication mo
 
 // Leanne:
 // reports use $conn plus vehicles/bookings contract na nilagay ko sa dashboard comments.

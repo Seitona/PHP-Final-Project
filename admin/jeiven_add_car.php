@@ -7,7 +7,7 @@ require_once __DIR__ . '/../includes/leanne_db.php';
 
 // Yana:
 // lagyan mo nalang ng admin session check dito pag final na login mo hehe.
-// admin page lang 'to so paki-redirect nalang yung hindi admin.
+// admin page lang to so paki redirect nalang yung hindi admin.
 
 // Leanne:
 // dito ko ginagamit yung $conn as mysqli connection galing sa leanne_db.php mo.
