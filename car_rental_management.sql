@@ -267,7 +267,7 @@ INSERT IGNORE INTO vehicles (
     'Gray',
     3200.00,
     'A comfortable SUV for business travel, family trips, and extra luggage.',
-    'assets/cars/hyundai-tucson.jpg',
+    'assets/cars/hyundai-tucson.png',
     'Reserved',
     DATE_SUB(NOW(), INTERVAL 4 DAY),
     NOW()
@@ -285,7 +285,7 @@ INSERT IGNORE INTO vehicles (
     'Red',
     2400.00,
     'An electric hatchback for quiet, efficient daily travel.',
-    'assets/cars/nissan-leaf.jpg',
+    'assets/cars/nissan-leaf.jpeg',
     'Under Maintenance',
     DATE_SUB(NOW(), INTERVAL 3 DAY),
     NOW()
@@ -380,8 +380,8 @@ SET image_path = CASE id
     WHEN 2 THEN 'assets/cars/mitsubishi-xpander.jpg'
     WHEN 3 THEN 'assets/cars/ford-ranger.jpg'
     WHEN 4 THEN 'assets/cars/honda-civic.jpg'
-    WHEN 5 THEN 'assets/cars/hyundai-tucson.jpg'
-    WHEN 6 THEN 'assets/cars/nissan-leaf.jpg'
+    WHEN 5 THEN 'assets/cars/hyundai-tucson.png'
+    WHEN 6 THEN 'assets/cars/nissan-leaf.jpeg'
     ELSE image_path
 END
 WHERE id IN (1, 2, 3, 4, 5, 6);
