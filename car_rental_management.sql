@@ -149,7 +149,7 @@ INSERT IGNORE INTO users (
     1,
     'System Admin',
     'admin@carrental.test',
-    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.',
+    '$2y$10$hzoXKOv3XIHOiKoP7IBTSOES39hhdAmp7dYiBBnN6cHBqRhYAfJZe',
     'admin',
     1,
     NULL
@@ -158,7 +158,7 @@ INSERT IGNORE INTO users (
     2,
     'Demo Customer',
     'customer@carrental.test',
-    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.',
+    '$2y$10$hzoXKOv3XIHOiKoP7IBTSOES39hhdAmp7dYiBBnN6cHBqRhYAfJZe',
     'customer',
     1,
     NULL

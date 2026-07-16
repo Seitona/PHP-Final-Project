@@ -12,7 +12,7 @@ $db_message = $db_connection_error ?? '';
 
 if (isset($_SESSION['user_id'])) {
     if ($_SESSION['role'] === 'admin') {
-        header('Location: admin/yana_users.php');
+        header('Location: admin/jeiven_dashboard.php');
     } else {
         // jeiven - palitan mo nalang ito ng customer homepage kapag tapos na.
         header('Location: leanne_cart.php');
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['role'] = $user['role'];
 
             if ($user['role'] === 'admin') {
-                header('Location: admin/yana_users.php');
+                header('Location: admin/jeiven_dashboard.php');
             } else {
                 // Leanne: dito muna ang customer after login habang ginagawa mo cart page.
                 header('Location: leanne_cart.php');

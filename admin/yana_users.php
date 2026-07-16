@@ -71,9 +71,58 @@ unset($_SESSION['message']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Users | Party4U</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f4f6f9;
+        }
+
+        .sidebar {
+            background: #17202a;
+            min-height: 100vh;
+        }
+
+        .sidebar a {
+            color: #d5d8dc;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: #273746;
+            color: #fff;
+        }
+    </style>
 </head>
-<body class="bg-light">
-    <main class="container py-4">
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-md-3 col-lg-2 p-3 sidebar">
+            <h4 class="text-white mb-4">Party4U Admin</h4>
+
+            <nav class="nav flex-column gap-1">
+                <a class="nav-link rounded" href="jeiven_dashboard.php">
+                    Dashboard
+                </a>
+
+                <a class="nav-link rounded" href="jeiven_cars.php">
+                    Vehicles
+                </a>
+
+                <a class="nav-link rounded" href="jeiven_add_car.php">
+                    Add Vehicle
+                </a>
+
+                <a class="nav-link rounded" href="jeiven_reports.php">
+                    Reports
+                </a>
+
+                <a class="nav-link rounded active" href="yana_users.php">
+                    Users
+                </a>
+            </nav>
+        </aside>
+
+    <main class="col-md-9 col-lg-10 px-md-4 py-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div><h1 class="h3 mb-0">Manage Users</h1><small class="text-muted">Welcome, <?php echo htmlspecialchars($_SESSION['full_name']); ?></small></div>
             <a href="../yana_logout.php" class="btn btn-outline-danger">Logout</a>
@@ -108,5 +157,7 @@ unset($_SESSION['message']);
             </table>
         </div></div></div>
     </main>
+    </div>
+</div>
 </body>
 </html>
