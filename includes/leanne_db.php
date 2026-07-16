@@ -8,10 +8,18 @@ $db_user = 'root';
 $db_password = '';
 $db_name = 'car_rental_management';
 $db_port = 3306;
+$db_connection_error = '';
 
 $conn = mysqli_init();
 
 if ($conn === false) {
+    $db_connection_error = 'Database connection could not be initialized.';
+
+    if (defined('ALLOW_DB_FAILURE') && ALLOW_DB_FAILURE) {
+        $conn = null;
+        return;
+    }
+
     exit('Database connection could not be initialized.');
 }
 
@@ -27,14 +35,19 @@ $connected = mysqli_real_connect(
 );
 
 if (!$connected) {
+    $db_connection_error =
+        'Database connection failed. Please check the database name and XAMPP MySQL.';
+
     error_log(
         'Database connection failed: ' . mysqli_connect_error()
     );
 
-    exit(
-        'Database connection failed. '
-        . 'Please check the database name and XAMPP MySQL.'
-    );
+    if (defined('ALLOW_DB_FAILURE') && ALLOW_DB_FAILURE) {
+        $conn = null;
+        return;
+    }
+
+    exit($db_connection_error);
 }
 
 if (!mysqli_set_charset($conn, 'utf8mb4')) {

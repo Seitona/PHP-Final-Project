@@ -153,7 +153,7 @@ unset($_SESSION['message']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Rental Cart | Car Rental</title>
+    <title>Rental Cart | Party4U</title>
 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -193,8 +193,8 @@ unset($_SESSION['message']);
 <body>
 <nav class="navbar navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="leanne_store.php">
-            Car Rental
+        <a class="navbar-brand fw-bold" href="index.php">
+            Party4U
         </a>
 
         <div class="d-flex gap-2">

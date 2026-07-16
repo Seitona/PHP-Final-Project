@@ -61,7 +61,7 @@ function uploadVehicleImage(array $file, array &$errors): ?string
         return null;
     }
 
-    $directory = __DIR__ . '/uploads/cars';
+    $directory = __DIR__ . '/../assets/cars';
     if (!is_dir($directory) && !mkdir($directory, 0755, true) && !is_dir($directory)) {
         $errors[] = 'The image folder is not writable.';
         return null;
@@ -72,7 +72,7 @@ function uploadVehicleImage(array $file, array &$errors): ?string
         $errors[] = 'The image could not be saved.';
         return null;
     }
-    return 'uploads/cars/' . $filename;
+    return 'assets/cars/' . $filename;
 }
 
 if (empty($_SESSION['csrf_token'])) {
@@ -167,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $db !== null) {
 <body>
 <div class="container-fluid"><div class="row">
     <aside class="col-md-3 col-lg-2 p-3 sidebar">
-        <h4 class="text-white mb-4">Car Rental Admin</h4>
+        <h4 class="text-white mb-4">Party4U Admin</h4>
         <nav class="nav flex-column gap-1">
             <a class="nav-link rounded" href="jeiven_dashboard.php">Dashboard</a>
             <a class="nav-link rounded" href="jeiven_cars.php">Vehicles</a>

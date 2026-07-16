@@ -108,7 +108,7 @@ $cart_count = isset($_SESSION['rental_cart']) ? 1 : 0;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Available Cars | Car Rental</title>
+    <title>Available Cars | Party4U</title>
 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -147,8 +147,8 @@ $cart_count = isset($_SESSION['rental_cart']) ? 1 : 0;
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="leanne_store.php">
-            Car Rental
+        <a class="navbar-brand fw-bold" href="index.php">
+            Party4U
         </a>
 
         <button

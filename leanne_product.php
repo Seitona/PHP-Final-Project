@@ -133,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <title>
         <?php echo e($vehicle['brand'] . ' ' . $vehicle['model']); ?>
-        | Car Rental
+        | Party4U
     </title>
 
     <link
@@ -166,8 +166,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 <nav class="navbar navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="leanne_store.php">
-            Car Rental
+        <a class="navbar-brand fw-bold" href="index.php">
+            Party4U
         </a>
 
         <div class="d-flex gap-2">
