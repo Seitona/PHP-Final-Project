@@ -140,28 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
-
-    <style>
-        body {
-            background: #f4f6f9;
-        }
-
-        .vehicle-image {
-            width: 100%;
-            min-height: 420px;
-            max-height: 520px;
-            object-fit: cover;
-            background: #e9ecef;
-        }
-
-        .vehicle-placeholder {
-            min-height: 420px;
-            display: grid;
-            place-items: center;
-            background: #e9ecef;
-            color: #6c757d;
-        }
-    </style>
+    <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">

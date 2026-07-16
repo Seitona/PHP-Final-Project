@@ -162,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $db !== null) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Add Vehicle | Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>body{background:#f4f6f9}.sidebar{background:#17202a;min-height:100vh}.sidebar a{color:#d5d8dc;text-decoration:none}.sidebar a:hover,.sidebar a.active{background:#273746;color:#fff}.required::after{content:' *';color:#dc3545}.form-card{max-width:1050px}</style>
+    <link href="../assets/css/style.css" rel="stylesheet">
 </head>
 <body>
 <div class="container-fluid"><div class="row">
@@ -173,6 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $db !== null) {
             <a class="nav-link rounded" href="jeiven_cars.php">Vehicles</a>
             <a class="nav-link rounded active" href="jeiven_add_car.php">Add Vehicle</a>
             <a class="nav-link rounded" href="jeiven_reports.php">Reports</a>
+            <a class="nav-link rounded" href="yana_users.php">Users</a>
         </nav>
         <!-- Faith: pakabit nalang dito yung final admin header/sidebar style mo hehe. -->
     </aside>

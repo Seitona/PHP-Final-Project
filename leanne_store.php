@@ -114,35 +114,7 @@ $cart_count = isset($_SESSION['rental_cart']) ? 1 : 0;
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
-
-    <style>
-        body {
-            background: #f4f6f9;
-        }
-
-        .car-image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            background: #e9ecef;
-        }
-
-        .car-placeholder {
-            height: 220px;
-            display: grid;
-            place-items: center;
-            background: #e9ecef;
-            color: #6c757d;
-        }
-
-        .car-card {
-            transition: transform .2s;
-        }
-
-        .car-card:hover {
-            transform: translateY(-3px);
-        }
-    </style>
+    <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

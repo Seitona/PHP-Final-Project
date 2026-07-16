@@ -71,27 +71,7 @@ unset($_SESSION['message']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Users | Party4U</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: #f4f6f9;
-        }
-
-        .sidebar {
-            background: #17202a;
-            min-height: 100vh;
-        }
-
-        .sidebar a {
-            color: #d5d8dc;
-            text-decoration: none;
-        }
-
-        .sidebar a:hover,
-        .sidebar a.active {
-            background: #273746;
-            color: #fff;
-        }
-    </style>
+    <link href="../assets/css/style.css" rel="stylesheet">
 </head>
 <body>
 <div class="container-fluid">

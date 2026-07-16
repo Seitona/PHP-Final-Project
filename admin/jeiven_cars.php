@@ -136,9 +136,9 @@ unset($_SESSION['flash_success'], $_SESSION['flash_error']);
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vehicles | Admin</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>body{background:#f4f6f9}.sidebar{background:#17202a;min-height:100vh}.sidebar a{color:#d5d8dc;text-decoration:none}.sidebar a:hover,.sidebar a.active{background:#273746;color:#fff}.vehicle-thumb{width:92px;height:62px;object-fit:cover;background:#e9ecef}.countdown{font-size:.78rem;line-height:1.2;white-space:nowrap}</style>
+    <link href="../assets/css/style.css" rel="stylesheet">
 </head><body><div class="container-fluid"><div class="row">
-<aside class="col-md-3 col-lg-2 p-3 sidebar"><h4 class="text-white mb-4">Party4U Admin</h4><nav class="nav flex-column gap-1"><a class="nav-link rounded" href="jeiven_dashboard.php">Dashboard</a><a class="nav-link rounded active" href="jeiven_cars.php">Vehicles</a><a class="nav-link rounded" href="jeiven_add_car.php">Add Vehicle</a><a class="nav-link rounded" href="jeiven_reports.php">Reports</a></nav><!-- Faith: final sidebar design mo nalang ikabit dito, salamat hehe. --></aside>
+<aside class="col-md-3 col-lg-2 p-3 sidebar"><h4 class="text-white mb-4">Party4U Admin</h4><nav class="nav flex-column gap-1"><a class="nav-link rounded" href="jeiven_dashboard.php">Dashboard</a><a class="nav-link rounded active" href="jeiven_cars.php">Vehicles</a><a class="nav-link rounded" href="jeiven_add_car.php">Add Vehicle</a><a class="nav-link rounded" href="jeiven_reports.php">Reports</a><a class="nav-link rounded" href="yana_users.php">Users</a></nav><!-- Faith: final sidebar design mo nalang ikabit dito, salamat hehe. --></aside>
 <main class="col-md-9 col-lg-10 px-md-4 py-4">
 <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4"><div><h1 class="h3 mb-1">Vehicles</h1><p class="text-secondary mb-0"><?= number_format($total) ?> vehicle<?= $total === 1 ? '' : 's' ?> in the fleet</p></div><a class="btn btn-primary" href="jeiven_add_car.php">+ Add Vehicle</a></div>
 <?php if ($success): ?><div class="alert alert-success alert-dismissible fade show"><?= e($success) ?><button class="btn-close" data-bs-dismiss="alert"></button></div><?php endif; ?>

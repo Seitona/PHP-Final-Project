@@ -159,36 +159,7 @@ unset($_SESSION['message']);
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
-
-    <style>
-        body {
-            background: #f4f6f9;
-        }
-
-        .cart-image {
-            width: 180px;
-            height: 125px;
-            object-fit: cover;
-            background: #e9ecef;
-        }
-
-        .cart-placeholder {
-            width: 180px;
-            height: 125px;
-            display: grid;
-            place-items: center;
-            background: #e9ecef;
-            color: #6c757d;
-        }
-
-        @media (max-width: 576px) {
-            .cart-image,
-            .cart-placeholder {
-                width: 100%;
-                height: 200px;
-            }
-        }
-    </style>
+    <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
