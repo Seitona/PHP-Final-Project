@@ -530,9 +530,10 @@ $stats = [
         <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
             <span class="fw-semibold">Party4U</span>
 
-            <span class="text-secondary">
-                Fleet browsing, reservation cart, checkout, and admin tools.
-            </span>
+            <div class="text-secondary">
+                <div>Fleet browsing, reservation cart, checkout, and admin tools.</div>
+                <small>This website is for educational purposes only and is a requirement for our final project.</small>
+            </div>
         </div>
     </div>
 </footer>
