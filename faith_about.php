@@ -6,6 +6,34 @@ session_start();
 $page_title = 'About | Party4U';
 $active_page = 'about';
 
+$members = [
+    ['name' => 'Jeiven', 'role' => 'Project Leader', 'image' => 'jeiven'],
+    ['name' => 'Faith', 'role' => 'Project Member', 'image' => 'faith'],
+    ['name' => 'Leanne', 'role' => 'Project Member', 'image' => 'leanne'],
+    ['name' => 'Yana', 'role' => 'Project Member', 'image' => 'yana'],
+];
+
+function memberImagePath(string $name): ?string
+{
+    $extensions = ['jpg', 'jpeg', 'png', 'webp', 'JPG', 'JPEG', 'PNG', 'WEBP', 'svg'];
+    $directory = __DIR__ . '/assets/member_pic';
+    $files = scandir($directory);
+
+    if ($files === false) {
+        return null;
+    }
+
+    foreach ($extensions as $extension) {
+        $filename = "{$name}.{$extension}";
+
+        if (in_array($filename, $files, true) && is_file($directory . '/' . $filename)) {
+            return 'assets/member_pic/' . $filename;
+        }
+    }
+
+    return null;
+}
+
 require __DIR__ . '/includes/faith_header.php';
 ?>
 <main>
@@ -104,6 +132,41 @@ require __DIR__ . '/includes/faith_header.php';
     </section>
 
     <section class="container py-5">
+        <div class="section-title mb-4">
+            <h2 class="h1 fw-bold">Meet the members</h2>
+            <p class="text-secondary mb-0">
+                The people behind the Party4U car rental system.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <?php foreach ($members as $member): ?>
+                <?php $image_path = memberImagePath($member['image']); ?>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card member-card h-100">
+                        <?php if ($image_path !== null): ?>
+                            <img
+                                src="<?php echo e($image_path); ?>"
+                                class="member-photo"
+                                alt="<?php echo e($member['name']); ?> profile photo"
+                            >
+                        <?php else: ?>
+                            <div class="member-photo member-photo-placeholder">
+                                <?php echo e(substr($member['name'], 0, 1)); ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="card-body p-4 text-center">
+                            <h3 class="h5 mb-1"><?php echo e($member['name']); ?></h3>
+                            <p class="text-secondary mb-0"><?php echo e($member['role']); ?></p>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <section class="container py-5">
         <div class="row g-4">
             <div class="col-lg-7">
                 <h2 class="h1 fw-bold">Contact Party4U</h2>
@@ -116,9 +179,9 @@ require __DIR__ . '/includes/faith_header.php';
                 <div class="card border-0 shadow-sm">
                     <div class="card-body p-4">
                         <h3 class="h5">Business information</h3>
-                        <p class="mb-2"><strong>Address:</strong> Your business address here</p>
-                        <p class="mb-2"><strong>Phone:</strong> Your contact number here</p>
-                        <p class="mb-2"><strong>Email:</strong> Your email address here</p>
+                        <p class="mb-2"><strong>Address:</strong> Philippines</p>
+                        <p class="mb-2"><strong>Phone:</strong> +63 09989720113</p>
+                        <p class="mb-2"><strong>Email:</strong> info@party4u.com</p>
                         <p class="mb-0"><strong>Hours:</strong> Monday-Saturday, 8:00 AM-6:00 PM</p>
                     </div>
                 </div>

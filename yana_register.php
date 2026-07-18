@@ -3,6 +3,7 @@ session_start();
 
 // Leanne: gamitin mo nalang yung shared $conn connection dito sa leanne_db.php.
 require_once __DIR__ . '/includes/leanne_db.php';
+require_once __DIR__ . '/includes/yana_mailer.php';
 
 $full_name = '';
 $email = '';
@@ -42,11 +43,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mysqli_stmt_bind_param($stmt, 'sssss', $full_name, $email, $hashed_password, $role, $verification_code);
 
             if (mysqli_stmt_execute($stmt)) {
-                // Yana: email service setup nalang dito kapag may hosting na kayo.
-                $verify_link = 'yana_verify_email.php?code=' . urlencode($verification_code);
-                $_SESSION['message'] = 'Registration successful. Verify your account using the link below.';
-                $_SESSION['verify_link'] = $verify_link;
-                header('Location: yana_register.php');
+                $verify_link = yana_site_url('yana_verify_email.php?code=' . urlencode($verification_code));
+                $email_result = yana_send_verification_email($email, $full_name, $verify_link);
+                $mail_config = yana_mail_config();
+
+                if ($email_result['sent']) {
+                    $_SESSION['message'] = 'Registration successful. Please check your email to verify your account before logging in.';
+                    header('Location: yana_login.php');
+                } else {
+                    $_SESSION['message'] = 'Registration successful, but we could not send the verification email. ' . $email_result['error'];
+
+                    if (!empty($mail_config['show_verification_link_on_failure'])) {
+                        $_SESSION['verify_link'] = $verify_link;
+                    }
+
+                    header('Location: yana_register.php');
+                }
+
+                mysqli_stmt_close($stmt);
                 exit;
             }
 
