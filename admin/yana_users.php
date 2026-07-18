@@ -4,12 +4,15 @@ session_start();
 // Leanne - same shared connection lang gamitin natin dito
 
 require_once __DIR__ . '/../includes/leanne_db.php';
+require_once __DIR__ . '/../includes/yana_user_fields.php';
 
 if (!isset($_SESSION['user_id']) || ($_SESSION['role'] ?? '') !== 'admin') {
     $_SESSION['message'] = 'Please log in as an admin first.';
     header('Location: ../yana_login.php');
     exit;
 }
+
+yana_ensure_user_contact_fields($conn);
 
 if (!isset($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -60,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-$users = mysqli_query($conn, 'SELECT user_id, full_name, email, role, is_verified FROM users ORDER BY user_id DESC');
+$users = mysqli_query($conn, 'SELECT user_id, full_name, email, complete_address, contact_numbers, role, is_verified FROM users ORDER BY user_id DESC');
 $message = $_SESSION['message'] ?? '';
 unset($_SESSION['message']);
 ?>
@@ -112,12 +115,14 @@ unset($_SESSION['message']);
         <?php endif; ?>
         <div class="card shadow-sm border-0"><div class="card-body p-0"><div class="table-responsive">
             <table class="table table-hover mb-0 align-middle">
-                <thead class="table-dark"><tr><th>Name</th><th>Email</th><th>Role</th><th>Verified</th><th>Actions</th></tr></thead>
+                <thead class="table-dark"><tr><th>Name</th><th>Email</th><th>Address</th><th>Contact</th><th>Role</th><th>Verified</th><th>Actions</th></tr></thead>
                 <tbody>
                 <?php while ($user = mysqli_fetch_assoc($users)): ?>
                     <tr>
                         <td><?php echo htmlspecialchars($user['full_name']); ?></td>
                         <td><?php echo htmlspecialchars($user['email']); ?></td>
+                        <td><?php echo htmlspecialchars($user['complete_address'] ?? ''); ?></td>
+                        <td><?php echo htmlspecialchars($user['contact_numbers'] ?? ''); ?></td>
                         <td><span class="badge text-bg-<?php echo $user['role'] === 'admin' ? 'primary' : 'secondary'; ?>"><?php echo htmlspecialchars($user['role']); ?></span></td>
                         <td><?php echo (int) $user['is_verified'] === 1 ? 'Yes' : 'No'; ?></td>
                         <td>
