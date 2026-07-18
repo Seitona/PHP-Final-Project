@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 mysqli_report(MYSQLI_REPORT_OFF);
 
-$db_host = 'localhost';
-$db_user = 'root';
-$db_password = '';
-$db_name = 'car_rental_management';
+$db_host = 'sql308.infinityfree.com';
+$db_user = 'if0_42441033';
+$db_password = 'BUGfPod7HjpPHzA';
+$db_name = 'if0_42441033_party4udb';
 $db_port = 3306;
 $db_connection_error = '';
 
