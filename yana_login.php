@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
 
     if (!$db_ready) {
-        $_SESSION['message'] = 'Login is unavailable because MySQL is not connected. Start XAMPP MySQL and check that the car_rental_management database exists.';
+        $_SESSION['message'] = 'Login is unavailable because MySQL is not connected. ' . $db_message;
     } elseif ($email === '' || $password === '') {
         $_SESSION['message'] = 'Please enter your email and password.';
     } else {

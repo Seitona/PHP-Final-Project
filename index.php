@@ -3,51 +3,12 @@ declare(strict_types=1);
 
 session_start();
 mysqli_report(MYSQLI_REPORT_OFF);
+define('ALLOW_DB_FAILURE', true);
+require_once __DIR__ . '/includes/leanne_db.php';
 
 function e(?string $value): string
 {
     return htmlspecialchars($value ?? '', ENT_QUOTES, 'UTF-8');
-}
-
-function homepage_db_connection(): array
-{
-    $conn = mysqli_init();
-
-    if ($conn === false) {
-        return [
-            'conn' => null,
-            'error' => 'Database connection could not be initialized.'
-        ];
-    }
-
-    mysqli_options($conn, MYSQLI_OPT_CONNECT_TIMEOUT, 3);
-
-    $connected = mysqli_real_connect(
-        $conn,
-        'localhost',
-        'root',
-        '',
-        'car_rental_management',
-        3306
-    );
-
-    if (!$connected) {
-        error_log('Homepage database connection failed: ' . mysqli_connect_error());
-
-        return [
-            'conn' => null,
-            'error' => 'MySQL is not connected yet. Start XAMPP MySQL and make sure the car_rental_management database exists.'
-        ];
-    }
-
-    if (!mysqli_set_charset($conn, 'utf8mb4')) {
-        error_log('Unable to set database charset: ' . mysqli_error($conn));
-    }
-
-    return [
-        'conn' => $conn,
-        'error' => ''
-    ];
 }
 
 function fetch_count(?mysqli $conn, string $sql): int
@@ -90,9 +51,7 @@ function fetch_value(?mysqli $conn, string $sql): string
     return (string) ($row[0] ?? '');
 }
 
-$db = homepage_db_connection();
-$conn = $db['conn'];
-$database_error = $db['error'];
+$database_error = $db_connection_error;
 $featured_vehicles = [];
 $cart_count = isset($_SESSION['rental_cart']) ? 1 : 0;
 $customer_name = (string) ($_SESSION['full_name'] ?? 'Customer');
