@@ -3,10 +3,22 @@ declare(strict_types=1);
 
 mysqli_report(MYSQLI_REPORT_OFF);
 
-$db_host = 'sql308.infinityfree.com';
-$db_user = 'if0_42441033';
-$db_password = 'BUGfPod7HjpPHzA';
-$db_name = 'if0_42441033_party4udb';
+$is_local = in_array($_SERVER['HTTP_HOST'] ?? '', ['localhost', '127.0.0.1'], true)
+    || str_starts_with($_SERVER['HTTP_HOST'] ?? '', 'localhost:')
+    || str_starts_with($_SERVER['HTTP_HOST'] ?? '', '127.0.0.1:');
+
+if ($is_local) {
+    $db_host = 'localhost';
+    $db_user = 'root';
+    $db_password = '';
+    $db_name = 'car_rental_management';
+} else {
+    $db_host = 'sql308.infinityfree.com';
+    $db_user = 'if0_42441033';
+    $db_password = 'BUGfPod7HjpPHzA';
+    $db_name = 'if0_42441033_party4udb';
+}
+
 $db_port = 3306;
 $db_connection_error = '';
 
@@ -35,11 +47,11 @@ $connected = mysqli_real_connect(
 );
 
 if (!$connected) {
-    $db_connection_error =
-        'Database connection failed. Please check the database name and XAMPP MySQL.';
+    $db_connection_error = 'Database connection failed for database "' . $db_name
+        . '" on host "' . $db_host . '". Error: ' . mysqli_connect_error();
 
     error_log(
-        'Database connection failed: ' . mysqli_connect_error()
+        $db_connection_error
     );
 
     if (defined('ALLOW_DB_FAILURE') && ALLOW_DB_FAILURE) {
