@@ -1,9 +1,3 @@
-CREATE DATABASE IF NOT EXISTS car_rental_management
-    CHARACTER SET utf8mb4
-    COLLATE utf8mb4_unicode_ci;
-
-USE car_rental_management;
-
 CREATE TABLE IF NOT EXISTS users (
     user_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     full_name VARCHAR(120) NOT NULL,
